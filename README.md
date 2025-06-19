@@ -1,112 +1,112 @@
 # Freee MCP Scalar
 
-> **🤖 Transform Claude into a Professional Accountant**
+> **🤖 Claudeをプロフェッショナルな会計士に変身させる**
 > 
-> Bridge the gap between Freee Accounting API and Claude AI with zero-configuration setup. Speak naturally about accounting, and let Claude handle the complex API interactions automatically.
+> freee会計APIとClaude AIを繋ぐ、ゼロ設定セットアップ。自然な日本語で会計について話しかけるだけで、Claudeが複雑なAPI操作を自動で処理します。
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![MCP](https://img.shields.io/badge/MCP-Model%20Context%20Protocol-blue)](https://modelcontextprotocol.io/)
 [![OAuth 2.0](https://img.shields.io/badge/OAuth-2.0%20%2B%20PKCE-green)](https://oauth.net/2/)
 [![Node.js](https://img.shields.io/badge/Node.js-≥20.0.0-brightgreen)](https://nodejs.org/)
 
-## 🎯 **Why This Matters**
+## 🎯 **なぜこれが重要なのか**
 
-| Traditional Workflow | With Freee MCP Scalar |
+| 従来のワークフロー | Freee MCP Scalar使用時 |
 |----------------------|----------------------|
-| 🔄 Manual Freee login → Navigate → Export → Analyze | 💬 "Show me January's P&L by partner" |
-| ⏰ 2 hours for monthly reports | ⚡ 5 minutes automated |
-| 🧠 Remember API endpoints & authentication | 🗣️ Natural language requests |
-| 🐛 Handle OAuth, tokens, rate limits yourself | ✅ Zero-config, auto-handled |
-| 📊 Manual data analysis | 🤖 AI-powered insights |
+| 🔄 freeeに手動ログイン → 画面操作 → エクスポート → 分析 | 💬 「1月の取引先別PLを見せて」 |
+| ⏰ 月次レポート作成に2時間 | ⚡ 5分で自動生成 |
+| 🧠 APIエンドポイントと認証を覚える必要 | 🗣️ 自然な日本語でリクエスト |
+| 🐛 OAuth、トークン、レート制限を自分で処理 | ✅ ゼロ設定、自動処理 |
+| 📊 手動でデータ分析 | 🤖 AI搭載の洞察 |
 
-### 💡 **Real-World Magic**
+### 💡 **実際の魔法**
 
 ```
-👤 "Create an invoice for Yamada Corp for ¥100,000"
-🤖 Claude automatically:
-   ✓ Finds partner ID for "Yamada Corp"
-   ✓ Creates invoice with proper formatting
-   ✓ Returns invoice number and details
+👤 「山田商事に10万円の請求書を作って」
+🤖 Claudeが自動で：
+   ✓ 「山田商事」からpartner IDを検索
+   ✓ 適切なフォーマットで請求書作成
+   ✓ 請求書番号と詳細を返却
 
-👤 "Show me unpaid invoices that are overdue"
-🤖 Claude automatically:
-   ✓ Queries all invoices
-   ✓ Filters by payment status and due date
-   ✓ Provides analysis and next actions
+👤 「期限切れの未払い請求書を見せて」
+🤖 Claudeが自動で：
+   ✓ 全ての請求書を照会
+   ✓ 支払い状況と期限でフィルタリング
+   ✓ 分析と次のアクションを提案
 
-👤 "Compare this month's expenses vs budget"
-🤖 Claude automatically:
-   ✓ Fetches trial balance data
-   ✓ Analyzes expense categories
-   ✓ Creates comparison report with insights
+👤 「今月の経費と予算を比較して」
+🤖 Claudeが自動で：
+   ✓ 試算表データを取得
+   ✓ 経費カテゴリを分析
+   ✓ 洞察付きの比較レポートを作成
 ```
 
-## 🚀 Features
+## 🚀 機能
 
-### ✅ Complete API Coverage
-- **30+ Freee API endpoints** as MCP tools
-- **Automatic tool generation** with Zod validation
-- **OAuth 2.0 + PKCE** secure authentication
-- **Automatic token refresh** with persistent storage
-- **Rate limiting** with exponential backoff
-- **Comprehensive error handling**
+### ✅ 完全なAPI対応
+- **30以上のfreee APIエンドポイント** をMCPツールとして提供
+- **Zodバリデーション** による自動ツール生成
+- **OAuth 2.0 + PKCE** による安全な認証
+- **永続化ストレージ** による自動トークンリフレッシュ
+- **指数バックオフ** によるレート制限対応
+- **包括的なエラーハンドリング**
 
-### 🛠 Core APIs
-- **Companies** - Business entity management
-- **Deals** - Income/expense transactions (CRUD)
-- **Invoices** - Invoice management (CRUD)
-- **Manual Journals** - Journal entries (CRUD)
-- **Account Items** - Chart of accounts (CRUD)
-- **Partners** - Customer/vendor management
-- **Trial Balance** - P&L and B/S reports
-- **Expenses** - Expense applications
+### 🛠 コアAPI
+- **事業所 (Companies)** - 会社情報の管理
+- **取引 (Deals)** - 収入・支出取引の作成・管理・削除
+- **請求書 (Invoices)** - 請求書の作成・更新・削除・一覧取得
+- **振替伝票 (Manual Journals)** - 仕訳の作成・管理・削除
+- **勘定科目 (Account Items)** - 勘定科目の作成・更新・削除
+- **取引先 (Partners)** - 顧客・仕入先の管理
+- **試算表 (Trial Balance)** - PL・BS試算表の取得
+- **経費 (Expenses)** - 経費申請の管理
 
-### 📊 Additional APIs
-- **Items** - Product/service catalog
-- **Taxes** - Tax codes and rates
-- **Segments** - Departments/projects
-- **Banks** - Financial institution integration
-- **Reports** - Various financial reports
+### 📊 追加API
+- **品目 (Items)** - 商品・サービスカタログ
+- **税区分 (Taxes)** - 税コードと税率
+- **セグメント (Segments)** - 部門・プロジェクト
+- **金融機関 (Banks)** - 金融機関連携
+- **レポート (Reports)** - 各種財務レポート
 
-## 🚀 **5-Minute Setup**
+## 🚀 **5分でセットアップ**
 
-### **Step 1: Clone & Install** ⬇️
+### **ステップ1: クローン＆インストール** ⬇️
 ```bash
 git clone https://github.com/masatokaneko/freee-mcp-scalar.git
 cd freee-mcp-scalar
 npm install
 ```
 
-### **Step 2: Get Freee Credentials** 🔑
-1. Visit [Freee Developer Console](https://app.secure.freee.co.jp/developers/applications)
-2. Create new application
-3. Set redirect URI: `http://127.0.0.1:8080/callback`
-4. Copy your `Client ID` and `Client Secret`
+### **ステップ2: freee認証情報を取得** 🔑
+1. [freee開発者コンソール](https://app.secure.freee.co.jp/developers/applications)にアクセス
+2. 新しいアプリケーションを作成
+3. リダイレクトURIを設定: `http://127.0.0.1:8080/callback`
+4. `Client ID` と `Client Secret` をコピー
 
-### **Step 3: Configure Environment** ⚙️
+### **ステップ3: 環境設定** ⚙️
 ```bash
 cp auth/.env.example .env
 ```
-Edit `.env` with your credentials:
+`.env`に認証情報を設定:
 ```env
 FREEE_CLIENT_ID=your_client_id_here
 FREEE_CLIENT_SECRET=your_client_secret_here
 ```
 
-### **Step 4: One-Click Authentication** 🔐
+### **ステップ4: ワンクリック認証** 🔐
 ```bash
 npm run auth
 ```
-> Automatically opens browser → Login to Freee → Tokens saved securely ✅
+> 自動でブラウザが開く → freeeにログイン → トークンが安全に保存 ✅
 
-### **Step 5: Launch & Connect** 🚀
+### **ステップ5: 起動＆接続** 🚀
 ```bash
 npm run build
 npm start
 ```
 
-### **Step 6: Add to Claude Desktop** 🤖
-Add to `claude_desktop_config.json`:
+### **ステップ6: Claude Desktopに追加** 🤖
+`claude_desktop_config.json`に追加:
 ```json
 {
   "mcpServers": {
@@ -122,18 +122,18 @@ Add to `claude_desktop_config.json`:
 }
 ```
 
-### **🎉 Start Using Immediately!**
+### **🎉 すぐに使い始められます！**
 ```
-💬 "Show me this month's revenue"
-💬 "Create an expense report for office supplies"
-💬 "List all unpaid invoices"
-💬 "Generate partner revenue ranking"
+💬 「今月の売上を見せて」
+💬 「事務用品の経費報告を作成して」
+💬 「未払いの請求書を全部リストアップして」
+💬 「取引先の売上ランキングを作って」
 ```
 
-## 🔧 Configuration
+## 🔧 設定
 
-### Claude Desktop Integration
-Add to your Claude Desktop config (`claude_desktop_config.json`):
+### Claude Desktop連携
+Claude Desktop設定ファイル (`claude_desktop_config.json`) に追加:
 
 ```json
 {
@@ -151,224 +151,224 @@ Add to your Claude Desktop config (`claude_desktop_config.json`):
 }
 ```
 
-### Available Environment Variables
+### 利用可能な環境変数
 ```env
-# Required
-FREEE_CLIENT_ID=               # Your Freee app client ID
-FREEE_CLIENT_SECRET=           # Your Freee app client secret
+# 必須
+FREEE_CLIENT_ID=               # freeeアプリのクライアントID
+FREEE_CLIENT_SECRET=           # freeeアプリのクライアントシークレット
 
-# Optional
-FREEE_COMPANY_ID=              # Default company ID
-FREEE_REDIRECT_URI=            # Custom redirect URI (default: http://127.0.0.1:8080/callback)
-FREEE_CALLBACK_PORT=           # Custom callback port (default: 8080)
-FREEE_BASE_URL=                # Custom auth base URL
-FREEE_API_URL=                 # Custom API base URL
+# オプション
+FREEE_COMPANY_ID=              # デフォルトの会社ID
+FREEE_REDIRECT_URI=            # カスタムリダイレクトURI (デフォルト: http://127.0.0.1:8080/callback)
+FREEE_CALLBACK_PORT=           # カスタムコールバックポート (デフォルト: 8080)
+FREEE_BASE_URL=                # カスタム認証ベースURL
+FREEE_API_URL=                 # カスタムAPIベースURL
 ```
 
-## 📋 Available MCP Tools
+## 📋 利用可能なMCPツール
 
-### Company Management
-- `get_companies` - List accessible companies
-- `get_company` - Get company details
+### 会社管理
+- `get_companies` - アクセス可能な会社一覧
+- `get_company` - 会社詳細の取得
 
-### Transaction Management
-- `get_deals` - List transactions with filters
-- `create_deal` - Create income/expense transactions
-- `get_invoices` - List invoices with filters
-- `create_invoice` - Create new invoices
-- `get_manual_journals` - List manual journal entries
-- `create_manual_journal` - Create journal entries
+### 取引管理
+- `get_deals` - フィルタ付き取引一覧
+- `create_deal` - 収入・支出取引の作成
+- `get_invoices` - フィルタ付き請求書一覧
+- `create_invoice` - 新規請求書の作成
+- `get_manual_journals` - 振替伝票一覧
+- `create_manual_journal` - 仕訳の作成
 
-### Master Data
-- `get_partners` - List customers/vendors
-- `get_account_items` - Chart of accounts
-- `get_items` - Product/service catalog
-- `get_taxes` - Tax codes and rates
-- `get_segments` - Departments/projects
-- `get_banks` - Supported banks
+### マスタデータ
+- `get_partners` - 顧客・仕入先一覧
+- `get_account_items` - 勘定科目一覧
+- `get_items` - 商品・サービスカタログ
+- `get_taxes` - 税コードと税率
+- `get_segments` - 部門・プロジェクト
+- `get_banks` - 対応金融機関
 
-### Reports
-- `get_trial_pl` - P&L trial balance
-- `get_trial_bs` - B/S trial balance
-- `get_expense_applications` - Expense reports
+### レポート
+- `get_trial_pl` - PL試算表
+- `get_trial_bs` - BS試算表
+- `get_expense_applications` - 経費レポート
 
-## 💼 **Real Business Use Cases**
+## 💼 **実際のビジネス活用例**
 
-### **📊 Monthly Closing Made Easy**
+### **📊 月次決算を簡単に**
 ```
-👤 "Generate monthly closing report for March 2024"
+👤 「2024年3月の月次決算レポートを作成して」
 
-🤖 Claude Response:
-📈 March 2024 Financial Summary
-├── Revenue: ¥12,450,000 (+15% vs Feb)
-├── Expenses: ¥8,200,000 (-5% vs Feb) 
-├── Net Income: ¥4,250,000 (+45% vs Feb)
-└── Top 3 Revenue Partners:
-    1. ABC Corp: ¥3,200,000
-    2. XYZ Ltd: ¥2,800,000
-    3. DEF Inc: ¥1,900,000
+🤖 Claudeの回答:
+📈 2024年3月 財務サマリー
+├── 売上: ¥12,450,000 (前月比+15%)
+├── 費用: ¥8,200,000 (前月比-5%) 
+├── 純利益: ¥4,250,000 (前月比+45%)
+└── 売上トップ3の取引先:
+    1. ABC株式会社: ¥3,200,000
+    2. XYZ有限会社: ¥2,800,000
+    3. DEF商事: ¥1,900,000
 
-⚠️  Action Items:
-• 5 invoices overdue (total: ¥850,000)
-• Rent expense missing for March
-```
-
-### **🧾 Smart Invoice Management**
-```
-👤 "Check if we have any problem invoices this month"
-
-🤖 Claude Response:
-🔍 Invoice Health Check - November 2024
-
-✅ Healthy: 45 invoices (¥18,200,000)
-⚠️  Needs Attention: 8 invoices
-├── Overdue (>30 days): 3 invoices (¥420,000)
-├── Large amounts (>¥500k): 2 invoices 
-└── Missing tax details: 3 invoices
-
-📋 Recommended Actions:
-1. Contact Yamada Corp for ¥180,000 overdue payment
-2. Review tax settings for invoices #INV-1023, #INV-1029
+⚠️  要対応事項:
+• 期限切れ請求書5件 (合計: ¥850,000)
+• 3月の家賃費用が未計上
 ```
 
-### **💰 Expense Analysis & Control**
+### **🧾 スマート請求書管理**
 ```
-👤 "Are we overspending on any category this quarter?"
+👤 「今月問題のある請求書があるかチェックして」
 
-🤖 Claude Response:
-📊 Q3 2024 Expense Analysis
+🤖 Claudeの回答:
+🔍 請求書ヘルスチェック - 2024年11月
 
-🔴 Over Budget:
-├── Travel: ¥450,000 (150% of budget)
-├── Marketing: ¥320,000 (125% of budget)
+✅ 健全: 45件の請求書 (¥18,200,000)
+⚠️  要注意: 8件の請求書
+├── 期限切れ(30日超): 3件 (¥420,000)
+├── 高額(50万円超): 2件
+└── 税区分未設定: 3件
 
-🟡 Watch List:
-├── Office Supplies: ¥89,000 (95% of budget)
-
-✅ Under Control:
-├── Utilities: ¥180,000 (75% of budget)
-├── Software: ¥240,000 (80% of budget)
-
-💡 Insights:
-• Travel spike due to overseas expansion
-• Marketing ROI: ¥8.2 revenue per ¥1 spent
+📋 推奨アクション:
+1. 山田商事に¥180,000の督促連絡
+2. 請求書#INV-1023, #INV-1029の税設定を確認
 ```
 
-### **🔄 Automated Workflow Examples**
+### **💰 経費分析とコントロール**
 ```
-👤 "Set up monthly partner performance tracking"
+👤 「今四半期で予算オーバーしているカテゴリはある？」
 
-🤖 Claude creates automated analysis:
-📈 Partner Performance Dashboard
-├── Revenue trend analysis
-├── Payment behavior scoring  
-├── Growth opportunity identification
-└── Risk assessment alerts
+🤖 Claudeの回答:
+📊 2024年Q3 経費分析
 
-👤 "Prepare data for tax filing"
+🔴 予算オーバー:
+├── 旅費交通費: ¥450,000 (予算の150%)
+├── 広告宣伝費: ¥320,000 (予算の125%)
 
-🤖 Claude generates:
-📋 Tax Preparation Package
-├── Categorized expense summary
-├── Revenue breakdown by tax rate
-├── Deductible vs non-deductible items
-└── Required supporting documents list
+🟡 要監視:
+├── 事務用品費: ¥89,000 (予算の95%)
+
+✅ 良好:
+├── 水道光熱費: ¥180,000 (予算の75%)
+├── ソフトウェア費: ¥240,000 (予算の80%)
+
+💡 洞察:
+• 海外展開による旅費増加
+• マーケティングROI: 1円投資で8.2円の売上
 ```
 
-## 🔐 Security Features
+### **🔄 自動化ワークフロー例**
+```
+👤 「月次の取引先パフォーマンス追跡を設定して」
 
-### Authentication
-- **OAuth 2.0 + PKCE** for enhanced security
-- **Automatic token refresh** (90-day refresh token lifecycle)
-- **Secure token storage** with encryption support
-- **CSRF protection** with state parameter validation
+🤖 Claudeが自動分析を作成:
+📈 取引先パフォーマンスダッシュボード
+├── 売上トレンド分析
+├── 支払い行動スコアリング
+├── 成長機会の特定
+└── リスク評価アラート
 
-### API Security
-- **Input validation** with Zod schemas
-- **Rate limiting** with exponential backoff
-- **Error sanitization** to prevent information disclosure
-- **TLS encryption** for all communications
+👤 「税務申告用のデータを準備して」
 
-### Development Security
-- **Environment variable isolation**
-- **Secret management** best practices
-- **Audit logging** for all operations
-- **Graceful error handling**
+🤖 Claudeが生成:
+📋 税務申告準備パッケージ
+├── カテゴリ別経費サマリー
+├── 税率別売上内訳
+├── 損金・益金項目の分類
+└── 必要な裏付け書類リスト
+```
 
-## 🛠 Development
+## 🔐 セキュリティ機能
 
-### Commands
+### 認証
+- **OAuth 2.0 + PKCE** による強化されたセキュリティ
+- **自動トークンリフレッシュ** (90日間のリフレッシュトークンライフサイクル)
+- **暗号化対応** による安全なトークン保存
+- **CSRF保護** (stateパラメータ検証)
+
+### API セキュリティ
+- **Zodスキーマ** による入力値検証
+- **指数バックオフ** によるレート制限対応
+- **情報漏洩防止** のためのエラーサニタイゼーション
+- **TLS暗号化** による全通信の保護
+
+### 開発セキュリティ
+- **環境変数の分離**
+- **シークレット管理** のベストプラクティス
+- **全操作の監査ログ**
+- **適切なエラーハンドリング**
+
+## 🛠 開発
+
+### コマンド
 ```bash
-npm run dev          # Development with hot reload
-npm run build        # Build TypeScript to JavaScript
-npm run validate     # Type checking without build
-npm run lint         # ESLint code analysis
-npm run test         # Run test suite
-npm run auth         # Interactive authentication
+npm run dev          # ホットリロード付き開発
+npm run build        # TypeScriptからJavaScriptへビルド
+npm run validate     # ビルドなしでの型チェック
+npm run lint         # ESLintコード解析
+npm run test         # テストスイート実行
+npm run auth         # インタラクティブ認証
 ```
 
-### Project Structure
+### プロジェクト構造
 ```
 freee-mcp-scalar/
 ├── src/
-│   ├── types.ts           # TypeScript definitions
-│   ├── auth.ts            # OAuth 2.0 + PKCE authentication
-│   ├── api-client.ts      # Freee API client with retry logic
-│   ├── mcp-server.ts      # MCP server implementation
-│   └── index.ts           # Main entry point
+│   ├── types.ts           # TypeScript型定義
+│   ├── auth.ts            # OAuth 2.0 + PKCE認証
+│   ├── api-client.ts      # リトライ機能付きFreee APIクライアント
+│   ├── mcp-server.ts      # MCPサーバー実装
+│   └── index.ts           # メインエントリーポイント
 ├── bin/
-│   └── freee_authenticate # Authentication CLI script
-├── mcp/                   # Legacy YAML templates (reference)
-├── auth/                  # Authentication documentation
-└── dist/                  # Built JavaScript files
+│   └── freee_authenticate # 認証用CLIスクリプト
+├── mcp/                   # レガシーYAMLテンプレート（参考用）
+├── auth/                  # 認証ドキュメント
+└── dist/                  # ビルド済みJavaScriptファイル
 ```
 
-## 📚 Documentation
+## 📚 ドキュメント
 
-- **[OAuth Guide](auth/oauth_instructions.md)** - Complete OAuth 2.0 setup
-- **[Token Management](auth/token_refresh_guide.md)** - Refresh token handling
-- **[Implementation Examples](auth/implementation_examples.md)** - Code examples
-- **[Security Guide](auth/security_best_practices.md)** - Security best practices
+- **[OAuth ガイド](auth/oauth_instructions.md)** - 完全なOAuth 2.0セットアップ
+- **[トークン管理](auth/token_refresh_guide.md)** - リフレッシュトークンの取り扱い
+- **[実装例](auth/implementation_examples.md)** - コード例
+- **[セキュリティガイド](auth/security_best_practices.md)** - セキュリティベストプラクティス
 
-## 🤝 Contributing
+## 🤝 コントリビューション
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes with tests
-4. Ensure all tests pass
-5. Submit a pull request
+1. リポジトリをフォーク
+2. フィーチャーブランチを作成
+3. テスト付きで変更を実装
+4. 全テストが通ることを確認
+5. プルリクエストを提出
 
-## 📄 License
+## 📄 ライセンス
 
-MIT License - see [LICENSE](LICENSE) file for details.
+MIT License - 詳細は [LICENSE](LICENSE) ファイルを参照
 
-## 🔗 Links
+## 🔗 リンク
 
-- [Freee API Documentation](https://developer.freee.co.jp/reference/accounting/reference)
+- [freee API ドキュメント](https://developer.freee.co.jp/reference/accounting/reference)
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [Claude Desktop](https://claude.ai/chat)
 
-## 🆚 **Direct API vs MCP Comparison**
+## 🆚 **直接API vs MCP比較**
 
 <table>
 <tr>
-<th width="50%">🔧 Traditional Direct API Approach</th>
-<th width="50%">🚀 Freee MCP Scalar Approach</th>
+<th width="50%">🔧 従来の直接API開発</th>
+<th width="50%">🚀 Freee MCP Scalar</th>
 </tr>
 <tr>
 <td>
 
 ```javascript
-// Complex OAuth setup
+// 複雑なOAuth設定
 const oauth = new OAuth2Client(/*...*/);
 const tokens = await oauth.getTokens(/*...*/);
 
-// Manual token refresh logic
+// 手動トークンリフレッシュロジック
 if (isExpired(tokens)) {
   tokens = await refreshTokens(/*...*/);
 }
 
-// Raw API calls with error handling
+// エラーハンドリング付きの生API呼び出し
 try {
   const response = await fetch('/api/1/deals', {
     headers: { 
@@ -379,88 +379,87 @@ try {
       company_id: companyId,
       issue_date: '2024-01-15',
       type: 'expense',
-      // ... complex payload
+      // ... 複雑なペイロード
     })
   });
   
   if (!response.ok) {
     if (response.status === 429) {
-      // Handle rate limiting
+      // レート制限の処理
       await sleep(calculateBackoff());
-      // Retry logic...
+      // リトライロジック...
     }
   }
   
   const data = await response.json();
-  // Manual validation...
+  // 手動バリデーション...
 } catch (error) {
-  // Error handling...
+  // エラーハンドリング...
 }
 ```
 
-**Result**: 50+ lines of boilerplate for one transaction
+**結果**: 1つの取引に50行以上のボイラープレート
 
 </td>
 <td>
 
 ```
-👤 "Create an expense transaction for office 
-    rent, ¥50,000, paid to Yamada Corp on 
-    January 15th"
+👤 「山田商事に事務所家賃5万円の経費取引を
+    1月15日付けで作成して」
 
-🤖 Done! Created transaction #TXN-001
-    ✓ Partner: Yamada Corp (ID: 1001)  
-    ✓ Account: Rent Expense (6001)
-    ✓ Amount: ¥50,000
-    ✓ Date: 2024-01-15
-    ✓ Status: Posted
+🤖 完了！取引#TXN-001を作成しました
+    ✓ 取引先: 山田商事 (ID: 1001)  
+    ✓ 勘定科目: 地代家賃 (6001)
+    ✓ 金額: ¥50,000
+    ✓ 日付: 2024-01-15
+    ✓ ステータス: 投稿済み
 ```
 
-**Result**: Natural language → Instant execution
+**結果**: 自然言語 → 即座に実行
 
 </td>
 </tr>
 <tr>
 <td>
 
-⏰ **Development Time**: 2-3 days  
-🧠 **Learning Curve**: OAuth, API docs, error handling  
-🔧 **Maintenance**: Token management, rate limits, retries  
-🐛 **Debugging**: Complex API interactions  
-📊 **Data Analysis**: Manual processing required  
+⏰ **開発時間**: 2-3日  
+🧠 **学習コスト**: OAuth、API仕様書、エラー処理  
+🔧 **メンテナンス**: トークン管理、レート制限、リトライ  
+🐛 **デバッグ**: 複雑なAPI相互作用  
+📊 **データ分析**: 手動処理が必要  
 
 </td>
 <td>
 
-⏰ **Setup Time**: 5 minutes  
-🧠 **Learning Curve**: Natural language  
-🔧 **Maintenance**: Zero - fully automated  
-🐛 **Debugging**: AI explains issues  
-📊 **Data Analysis**: Built-in AI insights  
+⏰ **セットアップ時間**: 5分  
+🧠 **学習コスト**: 自然言語のみ  
+🔧 **メンテナンス**: ゼロ - 完全自動化  
+🐛 **デバッグ**: AIが問題を説明  
+📊 **データ分析**: AI搭載の洞察機能  
 
 </td>
 </tr>
 </table>
 
-## ✨ **The Bottom Line**
+## ✨ **結論**
 
-> **Instead of learning Freee's API, teach Claude your business language**
+> **freeeのAPIを覚えるのではなく、Claudeにあなたのビジネス言語を教える**
 
-- 📈 **10x faster development** - No OAuth, no boilerplate, no API docs
-- 🤖 **AI-powered insights** - Claude understands your accounting data  
-- 🔒 **Enterprise-grade security** - Production-ready authentication
-- 🚀 **Instant deployment** - Works with existing Claude Desktop setup
-- 💼 **Business-ready** - Real accounting workflows, not just API calls
+- 📈 **10倍高速な開発** - OAuth不要、ボイラープレート不要、API仕様書不要
+- 🤖 **AI搭載の洞察** - Claudeが会計データを理解
+- 🔒 **エンタープライズ級セキュリティ** - プロダクション対応認証
+- 🚀 **即座のデプロイ** - 既存のClaude Desktop設定で動作
+- 💼 **ビジネス対応** - 単なるAPI呼び出しではなく、実際の会計ワークフロー
 
-## ⚠️ Important Notes
+## ⚠️ 重要な注意事項
 
-- **🔐 Security First** - Tokens encrypted and stored securely in `~/.config/freee-mcp/tokens.json`
-- **🚦 Smart Rate Limiting** - Automatic backoff and retry handling
-- **🔄 Auto-Refresh** - 90-day token lifecycle managed automatically  
-- **📋 Production Ready** - Comprehensive error handling and logging
-- **🌍 Open Source** - MIT license, contribute back to the community
+- **🔐 セキュリティ最優先** - トークンは `~/.config/freee-mcp/tokens.json` に暗号化して安全に保存
+- **🚦 スマートレート制限** - 自動バックオフとリトライ処理
+- **🔄 自動リフレッシュ** - 90日間のトークンライフサイクルを自動管理
+- **📋 プロダクション対応** - 包括的なエラーハンドリングとログ機能
+- **🌍 オープンソース** - MITライセンス、コミュニティへの貢献歓迎
 
 ---
 
-**🎉 Transform your accounting workflow today - Star ⭐ this repo if it helps you!**  
-**Made with ❤️ for the Freee developer community**
+**🎉 今すぐ会計ワークフローを変革しましょう - 役に立ったらぜひ ⭐ してください！**  
+**❤️ freee開発者コミュニティのために作成**
