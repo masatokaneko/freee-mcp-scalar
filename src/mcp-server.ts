@@ -9,10 +9,14 @@ import {
 import { z } from 'zod';
 import { FreeeAPIClient } from './api-client.js';
 import { FreeeConfig, FreeeConfigSchema, MCPTool } from './types.js';
+import { MonthlyTrendAnalyzer, MonthlyTrendReportSchema } from './monthly-trend-analyzer.js';
+import { DataExporter, DataUpdateSchema, QuickUpdateSchema } from './data-exporter.js';
 
 export class FreeeMCPServer {
   private server: Server;
   private apiClient: FreeeAPIClient;
+  private monthlyTrendAnalyzer: MonthlyTrendAnalyzer;
+  private dataExporter: DataExporter;
   private tools: MCPTool[] = [];
 
   constructor(config: FreeeConfig) {
@@ -29,6 +33,8 @@ export class FreeeMCPServer {
     );
 
     this.apiClient = new FreeeAPIClient(config);
+    this.monthlyTrendAnalyzer = new MonthlyTrendAnalyzer(config);
+    this.dataExporter = new DataExporter(config);
     this.initializeTools();
     this.setupHandlers();
   }
@@ -37,6 +43,100 @@ export class FreeeMCPServer {
    * MCPツールを初期化
    */
   private initializeTools(): void {
+    // 月次推移表作成ツール（完全版）
+    this.tools.push({
+      name: 'create_monthly_trend_report',
+      description: 'Create comprehensive monthly trend report with proper financial statement ordering. PL items show net balance (credit-debit), BS items show closing balance in standard accounting order.',
+      inputSchema: MonthlyTrendReportSchema,
+      handler: async (args: any) => {
+        try {
+          return await this.monthlyTrendAnalyzer.createMonthlyTrendReport(args);
+        } catch (error) {
+          throw new McpError(
+            ErrorCode.InternalError,
+            `月次推移表作成エラー: ${error}`
+          );
+        }
+      }
+    });
+
+    // 月次推移表作成（簡易版）
+    this.tools.push({
+      name: 'create_quick_monthly_report',
+      description: 'Create a quick monthly financial summary for the specified period',
+      inputSchema: z.object({
+        company_id: z.string().describe('Company ID'),
+        months: z.number().min(1).max(24).describe('Number of recent months to analyze').default(6)
+      }),
+      handler: async (args: any) => {
+        const now = new Date();
+        const endYear = now.getFullYear();
+        const endMonth = now.getMonth() + 1;
+        const startDate = new Date(endYear, endMonth - 1 - args.months, 1);
+        
+        return await this.monthlyTrendAnalyzer.createMonthlyTrendReport({
+          company_id: args.company_id,
+          start_year: startDate.getFullYear(),
+          start_month: startDate.getMonth() + 1,
+          end_year: endYear,
+          end_month: endMonth,
+          output_format: 'json'
+        });
+      }
+    });
+
+    // BS特化の月次推移表
+    this.tools.push({
+      name: 'create_bs_trend_report',
+      description: 'Create BS (Balance Sheet) focused monthly trend report',
+      inputSchema: z.object({
+        company_id: z.string().describe('Company ID'),
+        start_year: z.number().describe('Start year'),
+        start_month: z.number().min(1).max(12).describe('Start month'),
+        end_year: z.number().describe('End year'),
+        end_month: z.number().min(1).max(12).describe('End month')
+      }),
+      handler: async (args: any) => {
+        const result = await this.monthlyTrendAnalyzer.createMonthlyTrendReport(args);
+        return {
+          bs_report: result.bs_report,
+          summary: result.summary.map((s: any) => ({
+            period: s.period,
+            total_assets: s.total_assets,
+            total_liabilities: s.total_liabilities,
+            total_equity: s.total_equity
+          })),
+          metadata: result.metadata
+        };
+      }
+    });
+
+    // PL特化の月次推移表
+    this.tools.push({
+      name: 'create_pl_trend_report',
+      description: 'Create PL (Profit & Loss) focused monthly trend report',
+      inputSchema: z.object({
+        company_id: z.string().describe('Company ID'),
+        start_year: z.number().describe('Start year'),
+        start_month: z.number().min(1).max(12).describe('Start month'),
+        end_year: z.number().describe('End year'),
+        end_month: z.number().min(1).max(12).describe('End month')
+      }),
+      handler: async (args: any) => {
+        const result = await this.monthlyTrendAnalyzer.createMonthlyTrendReport(args);
+        return {
+          pl_report: result.pl_report,
+          summary: result.summary.map((s: any) => ({
+            period: s.period,
+            revenues: s.revenues,
+            expenses: s.expenses,
+            operating_profit: s.operating_profit
+          })),
+          metadata: result.metadata
+        };
+      }
+    });
+
     // 会社情報
     this.tools.push({
       name: 'get_companies',
@@ -325,6 +425,40 @@ export class FreeeMCPServer {
         offset: params.offset,
         limit: params.limit
       })
+    });
+
+    // データ更新ツール（完全版）
+    this.tools.push({
+      name: 'update_freee_data',
+      description: 'Update exported data directory with latest Freee data (account items, partners, trial balance). Old files are automatically removed.',
+      inputSchema: DataUpdateSchema,
+      handler: async (args: any) => {
+        try {
+          return await this.dataExporter.updateAllData(args);
+        } catch (error) {
+          throw new McpError(
+            ErrorCode.InternalError,
+            `データ更新エラー: ${error}`
+          );
+        }
+      }
+    });
+
+    // データ更新ツール（クイック版）
+    this.tools.push({
+      name: 'quick_update_data',
+      description: 'Quick update of exported data with latest 3 months of trial balance data',
+      inputSchema: QuickUpdateSchema,
+      handler: async (args: any) => {
+        try {
+          return await this.dataExporter.quickUpdate(args.company_id);
+        } catch (error) {
+          throw new McpError(
+            ErrorCode.InternalError,
+            `クイックデータ更新エラー: ${error}`
+          );
+        }
+      }
     });
   }
 
