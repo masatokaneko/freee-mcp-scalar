@@ -1,0 +1,9 @@
+description: セグメント（部門・プロジェクト）を作成
+endpoint: POST /api/1/segments
+params:
+  - company_id: required
+  - segment_tag: required (1-3)
+  - name: required
+  - shortcut1: optional
+  - shortcut2: optional
+output: 作成されたセグメントの詳細情報

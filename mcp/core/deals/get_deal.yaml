@@ -1,0 +1,6 @@
+description: 指定取引の詳細を取得
+endpoint: GET /api/1/deals/{id}
+params:
+  - company_id: required
+  - id: required (取引ID)
+output: 取引の詳細情報（明細、税額、支払い情報など）

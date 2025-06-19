@@ -1,0 +1,11 @@
+description: 請求書一覧を取得
+endpoint: GET /api/1/invoices
+params:
+  - company_id: required
+  - partner_id: optional
+  - issue_date_start: optional
+  - issue_date_end: optional
+  - due_date_start: optional
+  - due_date_end: optional
+  - invoice_status: optional (draft/applying/remanded/rejected/approved/issued)
+output: 請求書の一覧（ID、金額、ステータス、発行日など）

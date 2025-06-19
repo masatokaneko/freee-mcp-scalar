@@ -1,0 +1,6 @@
+description: 指定勘定科目の詳細を取得
+endpoint: GET /api/1/account_items/{id}
+params:
+  - company_id: required
+  - id: required (勘定科目ID)
+output: 勘定科目の詳細情報（名前、コード、カテゴリなど）

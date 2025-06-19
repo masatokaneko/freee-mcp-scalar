@@ -1,0 +1,9 @@
+description: 勘定科目を更新
+endpoint: PUT /api/1/account_items/{id}
+params:
+  - company_id: required
+  - id: required (勘定科目ID)
+  - name: optional
+  - shortcut: optional
+  - tax_code: optional
+output: 更新された勘定科目の詳細情報

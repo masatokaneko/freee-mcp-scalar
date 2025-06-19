@@ -1,0 +1,6 @@
+description: 指定振替伝票の詳細を取得
+endpoint: GET /api/1/manual_journals/{id}
+params:
+  - company_id: required
+  - id: required (振替伝票ID)
+output: 振替伝票の詳細情報（借方・貸方の明細、金額など）

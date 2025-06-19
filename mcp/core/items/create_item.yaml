@@ -1,0 +1,8 @@
+description: 品目を作成
+endpoint: POST /api/1/items
+params:
+  - company_id: required
+  - name: required
+  - unit: optional
+  - unit_price: optional
+output: 作成された品目の詳細情報

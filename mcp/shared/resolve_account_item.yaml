@@ -1,0 +1,4 @@
+description: 勘定科目名からaccount_item_idを解決
+steps:
+  - GET /account_items で科目名一致を検索
+  - 一致したIDを返す

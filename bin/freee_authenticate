@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+
+import 'dotenv/config';
+import { FreeeAuthManager } from '../src/auth.js';
+
+async function authenticate() {
+  const config = {
+    clientId: process.env.FREEE_CLIENT_ID || '',
+    clientSecret: process.env.FREEE_CLIENT_SECRET || '',
+    redirectUri: process.env.FREEE_REDIRECT_URI || 'http://127.0.0.1:8080/callback',
+    baseUrl: 'https://accounts.secure.freee.co.jp',
+    apiUrl: 'https://api.freee.co.jp',
+    port: parseInt(process.env.FREEE_CALLBACK_PORT || '8080')
+  };
+
+  if (!config.clientId || !config.clientSecret) {
+    console.error('❌ Please set FREEE_CLIENT_ID and FREEE_CLIENT_SECRET environment variables');
+    console.error('');
+    console.error('You can get these from: https://app.secure.freee.co.jp/developers/applications');
+    process.exit(1);
+  }
+
+  const authManager = new FreeeAuthManager(config);
+  
+  try {
+    console.log('🔐 Starting Freee API authentication...');
+    console.log('');
+    console.log('This will:');
+    console.log('1. Open your browser for Freee login');
+    console.log('2. Start a temporary callback server');
+    console.log('3. Save authentication tokens locally');
+    console.log('');
+    
+    await authManager.authenticate();
+    
+    console.log('');
+    console.log('🎉 Authentication completed successfully!');
+    console.log('');
+    console.log('You can now use the Freee MCP server with:');
+    console.log('   npm start');
+    
+  } catch (error) {
+    console.error('❌ Authentication failed:', error.message);
+    
+    if (error.message.includes('timeout')) {
+      console.error('');
+      console.error('💡 Tips:');
+      console.error('   - Make sure to complete authentication within 5 minutes');
+      console.error('   - Check that port 8080 is available');
+      console.error('   - Try running the command again');
+    }
+    
+    process.exit(1);
+  }
+}
+
+authenticate();

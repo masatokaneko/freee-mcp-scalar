@@ -1,0 +1,6 @@
+description: 連携可能な金融機関一覧を取得
+endpoint: GET /api/1/banks
+params:
+  - offset: optional
+  - limit: optional
+output: 金融機関の一覧（銀行名、コードなど）

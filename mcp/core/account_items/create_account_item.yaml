@@ -1,0 +1,10 @@
+description: 勘定科目を作成
+endpoint: POST /api/1/account_items
+params:
+  - company_id: required
+  - name: required (科目名)
+  - shortcut: optional (ショートカット)
+  - shortcut_num: optional (ショートカット番号)
+  - tax_code: optional (税区分コード)
+  - group_name: optional (決算書表示名)
+output: 作成された勘定科目の詳細情報

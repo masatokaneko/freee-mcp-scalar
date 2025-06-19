@@ -1,0 +1,6 @@
+description: 取引を削除
+endpoint: DELETE /api/1/deals/{id}
+params:
+  - company_id: required
+  - id: required (取引ID)
+output: 削除結果のステータス

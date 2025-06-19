@@ -1,0 +1,12 @@
+description: 取引（収入・支出）一覧を取得
+endpoint: GET /api/1/deals
+params:
+  - company_id: required
+  - partner_id: optional
+  - account_item_id: optional
+  - start_issue_date: optional
+  - end_issue_date: optional
+  - start_due_date: optional
+  - end_due_date: optional
+  - type: optional (income/expense)
+output: 取引の一覧（ID、金額、取引先、日付など）

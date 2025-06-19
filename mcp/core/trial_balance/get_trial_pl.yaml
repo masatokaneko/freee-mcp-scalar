@@ -1,0 +1,8 @@
+description: PL試算表を取得（取引先別）
+endpoint: GET /api/1/reports/trial_pl
+params:
+  - company_id: required
+  - start_date: required
+  - end_date: required
+  - breakdown_display_type: partner
+output: 各パートナーごとの金額一覧

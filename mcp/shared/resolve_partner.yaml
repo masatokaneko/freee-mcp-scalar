@@ -1,0 +1,4 @@
+description: partner名からpartner_idを解決するモジュール
+steps:
+  - GET /partners?keyword={partner_name} で検索
+  - 最初の一致したpartnerを返す

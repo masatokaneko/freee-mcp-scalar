@@ -1,0 +1,6 @@
+description: 振替伝票を削除
+endpoint: DELETE /api/1/manual_journals/{id}
+params:
+  - company_id: required
+  - id: required (振替伝票ID)
+output: 削除結果のステータス

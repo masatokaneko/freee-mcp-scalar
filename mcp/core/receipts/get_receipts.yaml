@@ -1,0 +1,8 @@
+description: レシート一覧を取得
+endpoint: GET /api/1/receipts
+params:
+  - company_id: required
+  - start_date: optional
+  - end_date: optional
+  - user_name: optional
+output: レシートの一覧（日付、金額、ステータスなど）

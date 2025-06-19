@@ -1,0 +1,7 @@
+description: レシートを作成
+endpoint: POST /api/1/receipts
+params:
+  - company_id: required
+  - receipt: required (画像ファイル)
+  - description: optional
+output: 作成されたレシートの詳細情報

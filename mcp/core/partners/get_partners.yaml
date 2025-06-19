@@ -1,0 +1,6 @@
+description: Freee APIから取引先（パートナー）一覧を取得
+endpoint: GET /api/1/partners
+params:
+  - company_id: required
+  - keyword: optional
+output: パートナー名とIDのリスト

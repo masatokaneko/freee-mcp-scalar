@@ -1,0 +1,11 @@
+description: 経費申請を作成
+endpoint: POST /api/1/expense_applications
+params:
+  - company_id: required
+  - title: required
+  - expense_application_lines[]: required
+    - transaction_date: required
+    - description: required
+    - amount: required
+    - account_item_id: required
+output: 作成された経費申請の詳細情報

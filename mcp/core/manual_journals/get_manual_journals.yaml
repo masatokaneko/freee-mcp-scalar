@@ -1,0 +1,8 @@
+description: 振替伝票一覧を取得
+endpoint: GET /api/1/manual_journals
+params:
+  - company_id: required
+  - start_issue_date: optional
+  - end_issue_date: optional
+  - entry_side: optional (debit/credit)
+output: 振替伝票の一覧（ID、日付、摘要、金額など）

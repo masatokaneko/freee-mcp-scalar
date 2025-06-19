@@ -1,0 +1,6 @@
+description: 品目一覧を取得
+endpoint: GET /api/1/items
+params:
+  - company_id: required
+  - keyword: optional
+output: 品目の一覧（品目名、単価、単位など）

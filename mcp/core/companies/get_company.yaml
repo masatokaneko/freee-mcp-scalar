@@ -1,0 +1,5 @@
+description: 指定事業所の詳細を取得
+endpoint: GET /api/1/companies/{id}
+params:
+  - id: required (事業所ID)
+output: 事業所の詳細情報（名前、住所、税務設定など）

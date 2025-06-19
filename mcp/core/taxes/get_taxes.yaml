@@ -1,0 +1,5 @@
+description: 税区分一覧を取得
+endpoint: GET /api/1/taxes
+params:
+  - company_id: required
+output: 税区分の一覧（税コード、税率、名称など）

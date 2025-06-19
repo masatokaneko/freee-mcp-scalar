@@ -1,0 +1,8 @@
+description: 振替伝票を更新
+endpoint: PUT /api/1/manual_journals/{id}
+params:
+  - company_id: required
+  - id: required (振替伝票ID)
+  - issue_date: optional
+  - details[]: optional
+output: 更新された振替伝票の詳細情報

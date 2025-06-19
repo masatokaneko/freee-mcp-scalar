@@ -1,0 +1,6 @@
+description: 申告書一覧を取得
+endpoint: GET /api/1/forms
+params:
+  - company_id: required
+  - type: optional (income_tax/corporate_tax)
+output: 申告書の一覧（種類、ステータスなど）

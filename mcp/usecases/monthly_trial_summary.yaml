@@ -1,0 +1,6 @@
+description: パートナー別の月次PL推移表を作成
+steps:
+  - 各月のPL試算表を取得 (get_trial_pl)
+  - 各パートナーの金額を抽出
+  - パートナー単位で縦持ちから横持ちの推移表に整形
+  - 出力：Google Sheetsに反映 or CSV出力

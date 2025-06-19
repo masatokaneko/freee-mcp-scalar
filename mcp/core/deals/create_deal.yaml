@@ -1,0 +1,12 @@
+description: 取引（収入・支出）を作成
+endpoint: POST /api/1/deals
+params:
+  - company_id: required
+  - issue_date: required (取引日)
+  - type: required (income/expense)
+  - partner_id: optional
+  - details[]: required (明細配列)
+    - account_item_id: required
+    - amount: required
+    - tax_code: optional
+output: 作成された取引の詳細情報

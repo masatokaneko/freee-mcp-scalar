@@ -1,0 +1,12 @@
+description: 振替伝票を作成
+endpoint: POST /api/1/manual_journals
+params:
+  - company_id: required
+  - issue_date: required
+  - details[]: required (明細配列)
+    - entry_side: required (debit/credit)
+    - account_item_id: required
+    - amount: required
+    - description: optional
+    - partner_id: optional
+output: 作成された振替伝票の詳細情報

@@ -1,0 +1,54 @@
+{
+  "name": "freee-mcp-scalar",
+  "version": "1.0.0",
+  "description": "Comprehensive Freee Accounting API MCP implementation with all endpoints",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --outfile=dist/index.js --platform=node --target=node22 --format=esm --external:@modelcontextprotocol/sdk",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "auth": "tsx src/auth.ts",
+    "validate": "tsc --noEmit",
+    "lint": "eslint src/**/*.ts",
+    "test": "vitest"
+  },
+  "keywords": [
+    "freee",
+    "accounting",
+    "api",
+    "mcp",
+    "model-context-protocol",
+    "oauth",
+    "typescript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.22.4",
+    "node-fetch": "^3.3.2",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "esbuild": "^0.19.0",
+    "tsx": "^4.6.0",
+    "typescript": "^5.0.0",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "vitest": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/freee-mcp-scalar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/freee-mcp-scalar/issues"
+  },
+  "homepage": "https://github.com/yourusername/freee-mcp-scalar#readme"
+}

@@ -1,0 +1,6 @@
+description: セグメント（部門・プロジェクト）一覧を取得
+endpoint: GET /api/1/segments
+params:
+  - company_id: required
+  - segment_tag: optional (1-3)
+output: セグメントの一覧（セグメント名、コードなど）

@@ -1,0 +1,5 @@
+description: 事業所一覧を取得
+endpoint: GET /api/1/companies
+params: []
+output: 事業所ID、事業所名、表示名のリスト
+note: ほとんどのAPIで必要となるcompany_idを取得するために使用

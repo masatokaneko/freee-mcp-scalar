@@ -1,0 +1,6 @@
+description: 指定請求書の詳細を取得
+endpoint: GET /api/1/invoices/{id}
+params:
+  - company_id: required
+  - id: required (請求書ID)
+output: 請求書の詳細情報（明細、金額、取引先、支払い条件など）

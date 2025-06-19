@@ -1,0 +1,9 @@
+description: 経費申請一覧を取得
+endpoint: GET /api/1/expense_applications
+params:
+  - company_id: required
+  - start_application_date: optional
+  - end_application_date: optional
+  - applicant_id: optional
+  - application_status: optional (draft/in_progress/approved/rejected/feedback)
+output: 経費申請の一覧（申請日、金額、ステータスなど）

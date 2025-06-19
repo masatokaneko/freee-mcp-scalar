@@ -1,0 +1,15 @@
+description: 請求書を作成
+endpoint: POST /api/1/invoices
+params:
+  - company_id: required
+  - issue_date: required
+  - partner_id: required
+  - partner_name: optional
+  - invoice_contents[]: required (明細配列)
+    - order: required
+    - type: required (normal)
+    - account_item_id: required
+    - description: required
+    - unit_price: required
+    - qty: required
+output: 作成された請求書の詳細情報

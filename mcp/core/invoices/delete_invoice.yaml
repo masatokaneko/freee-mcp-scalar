@@ -1,0 +1,6 @@
+description: 請求書を削除
+endpoint: DELETE /api/1/invoices/{id}
+params:
+  - company_id: required
+  - id: required (請求書ID)
+output: 削除結果のステータス

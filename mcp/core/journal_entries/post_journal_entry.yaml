@@ -1,0 +1,6 @@
+description: 仕訳の登録
+endpoint: POST /api/1/journal_entries
+params:
+  - company_id: required
+  - issue_date, details[], amount
+output: 登録済み仕訳の内容

@@ -1,0 +1,9 @@
+description: 請求書を更新
+endpoint: PUT /api/1/invoices/{id}
+params:
+  - company_id: required
+  - id: required (請求書ID)
+  - issue_date: optional
+  - partner_id: optional
+  - invoice_contents[]: optional
+output: 更新された請求書の詳細情報

@@ -1,0 +1,7 @@
+description: 勘定科目一覧を取得
+endpoint: GET /api/1/account_items
+params:
+  - company_id: required
+  - base_date: optional
+output: 勘定科目の一覧（ID、科目名、科目コードなど）
+note: 勘定科目IDは事業所ごとに異なるため、必ず事業所ごとに取得
