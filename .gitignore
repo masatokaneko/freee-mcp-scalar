@@ -1,3 +1,44 @@
+# 環境設定とビルド成果物
 .env
 .DS_Store
 node_modules/
+dist/
+
+# 認証・トークンファイル
+tokens.json
+~/.config/freee-mcp/
+
+# 実際のFreeeデータを含むファイル
+*_actual_data.py
+*_real_data.py
+get_*.py
+extract_*.py
+search_*.py
+debug_*.py
+test_*.py
+correct_*.py
+create_*.py
+direct_*.py
+
+# データ分析ディレクトリ（実際のデータ含む）
+data_analysis/
+
+# データ出力ファイル
+*.csv
+*.xlsx
+*.json
+data/
+output/
+reports/
+
+# 一時ファイル
+temp/
+tmp/
+*.tmp
+*.log
+
+# Python関連
+__pycache__/
+*.pyc
+*.pyo
+venv/
