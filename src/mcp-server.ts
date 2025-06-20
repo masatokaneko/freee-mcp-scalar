@@ -11,12 +11,14 @@ import { FreeeAPIClient } from './api-client.js';
 import { FreeeConfig, FreeeConfigSchema, MCPTool } from './types.js';
 import { MonthlyTrendAnalyzer, MonthlyTrendReportSchema } from './monthly-trend-analyzer.js';
 import { DataExporter, DataUpdateSchema, QuickUpdateSchema } from './data-exporter.js';
+import { ExpenseManager, PendingApprovalsSchema, ApproveExpenseSchema, RejectExpenseSchema, SendBackExpenseSchema, MyExpenseApplicationsSchema, ExpenseStatisticsSchema, BulkApproveSchema } from './expense-manager.js';
 
 export class FreeeMCPServer {
   private server: Server;
   private apiClient: FreeeAPIClient;
   private monthlyTrendAnalyzer: MonthlyTrendAnalyzer;
   private dataExporter: DataExporter;
+  private expenseManager: ExpenseManager;
   private tools: MCPTool[] = [];
 
   constructor(config: FreeeConfig) {
@@ -35,6 +37,7 @@ export class FreeeMCPServer {
     this.apiClient = new FreeeAPIClient(config);
     this.monthlyTrendAnalyzer = new MonthlyTrendAnalyzer(config);
     this.dataExporter = new DataExporter(config);
+    this.expenseManager = new ExpenseManager(config);
     this.initializeTools();
     this.setupHandlers();
   }
@@ -456,6 +459,119 @@ export class FreeeMCPServer {
           throw new McpError(
             ErrorCode.InternalError,
             `クイックデータ更新エラー: ${error}`
+          );
+        }
+      }
+    });
+
+    // 経費申請管理ツール
+    this.tools.push({
+      name: 'get_my_pending_approvals',
+      description: 'Get expense applications pending my approval as approver',
+      inputSchema: PendingApprovalsSchema,
+      handler: async (args: any) => {
+        try {
+          return await this.expenseManager.getMyPendingApprovals(args);
+        } catch (error) {
+          throw new McpError(
+            ErrorCode.InternalError,
+            `承認待ち取得エラー: ${error}`
+          );
+        }
+      }
+    });
+
+    this.tools.push({
+      name: 'approve_expense_application',
+      description: 'Approve an expense application',
+      inputSchema: ApproveExpenseSchema,
+      handler: async (args: any) => {
+        try {
+          return await this.expenseManager.approveExpenseApplication(args);
+        } catch (error) {
+          throw new McpError(
+            ErrorCode.InternalError,
+            `経費申請承認エラー: ${error}`
+          );
+        }
+      }
+    });
+
+    this.tools.push({
+      name: 'reject_expense_application',
+      description: 'Reject an expense application with reason',
+      inputSchema: RejectExpenseSchema,
+      handler: async (args: any) => {
+        try {
+          return await this.expenseManager.rejectExpenseApplication(args);
+        } catch (error) {
+          throw new McpError(
+            ErrorCode.InternalError,
+            `経費申請却下エラー: ${error}`
+          );
+        }
+      }
+    });
+
+    this.tools.push({
+      name: 'send_back_expense_application',
+      description: 'Send back an expense application for revision',
+      inputSchema: SendBackExpenseSchema,
+      handler: async (args: any) => {
+        try {
+          return await this.expenseManager.sendBackExpenseApplication(args);
+        } catch (error) {
+          throw new McpError(
+            ErrorCode.InternalError,
+            `経費申請差戻しエラー: ${error}`
+          );
+        }
+      }
+    });
+
+    this.tools.push({
+      name: 'get_my_expense_applications',
+      description: 'Get my expense applications with status filtering',
+      inputSchema: MyExpenseApplicationsSchema,
+      handler: async (args: any) => {
+        try {
+          return await this.expenseManager.getMyExpenseApplications(args);
+        } catch (error) {
+          throw new McpError(
+            ErrorCode.InternalError,
+            `経費申請一覧取得エラー: ${error}`
+          );
+        }
+      }
+    });
+
+    this.tools.push({
+      name: 'get_expense_statistics',
+      description: 'Get comprehensive expense application statistics and trends',
+      inputSchema: ExpenseStatisticsSchema,
+      handler: async (args: any) => {
+        try {
+          return await this.expenseManager.getExpenseStatistics(args);
+        } catch (error) {
+          throw new McpError(
+            ErrorCode.InternalError,
+            `経費統計取得エラー: ${error}`
+          );
+        }
+      }
+    });
+
+    this.tools.push({
+      name: 'bulk_approve_expenses',
+      description: 'Bulk approve expense applications with conditions (amount limit, specific applicants)',
+      inputSchema: BulkApproveSchema,
+      handler: async (args: any) => {
+        try {
+          return await this.expenseManager.bulkApproveExpenses(args);
+        } catch (error) {
+          throw new McpError(
+            ErrorCode.InternalError,
+            `一括承認エラー: ${error}`
           );
         }
       }

@@ -235,13 +235,47 @@ FREEE_API_URL=                 # カスタムAPIベースURL
 - JSON: `~/freee_monthly_reports/monthly_trend_report_YYYY-MM-DD.json`
 - CSV: `~/freee_monthly_reports/monthly_trend_summary_YYYY-MM-DD.csv`
 
-## 📋 利用可能なMCPツール
+## 🧾 新機能：経費申請管理
 
-### 会社管理
+### **📋 包括的な経費申請ツール**
+
+申請者と承認者の両方の立場から経費申請業務を効率化する強力なツールセットが追加されました：
+
+#### **利用可能なツール**
+
+1. **`get_my_pending_approvals`** - 承認待ち申請一覧
+2. **`approve_expense_application`** - 申請承認
+3. **`bulk_approve_expenses`** - 一括承認
+4. **`get_my_expense_applications`** - 自分の申請一覧
+5. **`get_expense_statistics`** - 経費統計分析
+6. **`reject_expense_application`** - 申請却下
+7. **`send_back_expense_application`** - 申請差戻し
+
+#### **自然言語での使用例**
+```
+💬 「私が承認すべき申請を教えて」
+🤖 → 緊急度付きで承認待ち一覧を表示
+
+💬 「5万円以下の申請を一括承認して」  
+🤖 → 条件に合致する申請を自動承認
+
+💬 「今四半期の経費傾向を分析して」
+🤖 → カテゴリ別・月次トレンド分析を実行
+```
+
+#### **スマート承認機能**
+- ✅ **緊急度判定**: 申請からの経過日数と金額で自動判定
+- ✅ **一括処理**: 条件指定での効率的な承認
+- ✅ **統計分析**: 申請傾向の可視化
+- ✅ **コンプライアンス**: 規程違反の自動チェック
+
+## 📋 利用可能なMCPツール（総計36個）
+
+### 🏢 会社管理 (2ツール)
 - `get_companies` - アクセス可能な会社一覧
 - `get_company` - 会社詳細の取得
 
-### 取引管理
+### 💼 取引管理 (8ツール)
 - `get_deals` - フィルタ付き取引一覧
 - `create_deal` - 収入・支出取引の作成
 - `get_invoices` - フィルタ付き請求書一覧
@@ -249,7 +283,7 @@ FREEE_API_URL=                 # カスタムAPIベースURL
 - `get_manual_journals` - 振替伝票一覧
 - `create_manual_journal` - 仕訳の作成
 
-### マスタデータ
+### 👥 マスタデータ管理 (6ツール)
 - `get_partners` - 顧客・仕入先一覧
 - `get_account_items` - 勘定科目一覧
 - `get_items` - 商品・サービスカタログ
@@ -257,10 +291,34 @@ FREEE_API_URL=                 # カスタムAPIベースURL
 - `get_segments` - 部門・プロジェクト
 - `get_banks` - 対応金融機関
 
-### レポート
+### 📊 レポート・試算表 (3ツール)
 - `get_trial_pl` - PL試算表
 - `get_trial_bs` - BS試算表
 - `get_expense_applications` - 経費レポート
+
+### 📈 月次推移表 (4ツール) ⭐新機能
+- `create_monthly_trend_report` - 完全版月次推移表
+- `create_quick_monthly_report` - 簡易版（過去N ヶ月）
+- `create_bs_trend_report` - BS特化版
+- `create_pl_trend_report` - PL特化版
+
+### 🧾 経費申請管理 (7ツール) ⭐新機能
+- `get_my_pending_approvals` - 承認待ち申請一覧
+- `approve_expense_application` - 申請承認
+- `reject_expense_application` - 申請却下
+- `send_back_expense_application` - 申請差戻し
+- `get_my_expense_applications` - 自分の申請一覧
+- `get_expense_statistics` - 経費統計分析
+- `bulk_approve_expenses` - 一括承認
+
+### 💾 データ管理 (2ツール) ⭐新機能
+- `update_freee_data` - 完全データ更新
+- `quick_update_data` - クイック更新（最新3ヶ月）
+
+### 🔗 その他 (4ツール)
+- その他のマスタデータ取得機能
+
+> **📖 詳細リファレンス**: [完全なツールリファレンス](docs/mcp-tools-reference.md)で全36ツールの詳細仕様を確認できます
 
 ## 💼 **実際のビジネス活用例**
 
